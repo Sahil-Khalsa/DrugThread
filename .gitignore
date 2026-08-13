@@ -25,6 +25,14 @@ backend/.pytest_cache/
 backend/.mypy_cache/
 backend/.ruff_cache/
 
+# Claude Code local config/session state
+.claude/
+.claude.json
+.mcp.json
+
+# Markdown docs (CLAUDE.md, STATUS.md, spec, etc.) — excluded from version control per team decision
+*.md
+
 # Editor / OS
 .vscode/
 .idea/
