@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/Convoke-MCP-6366f1?style=for-the-badge" />
 </p>
 
-**DrugThread** is an agentic pharmaceutical intelligence platform. Given a drug name, a hierarchy of AI agents reconstructs a complete, source-backed dossier — covering the FDA label, the biological network, the full clinical-development history including every failure, and cross-sectional findings connecting all three.
+**DrugThread** is an agentic pharmaceutical intelligence platform. Given a drug name, a hierarchy of AI agents reconstructs a complete, source-backed dossier covering the FDA label, the biological network, the full clinical-development history including every failure, and cross-sectional findings connecting all three.
 
 > A researcher asking "what happened with Keytruda in triple-negative breast cancer?" used to mean hours in PubMed. DrugThread answers in seconds, with sources.
 
@@ -39,7 +39,7 @@
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                        DrugThread — Request Flow                             ║
+║                        DrugThread: Request Flow                              ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                              ║
 ║  User                                                                        ║
@@ -48,7 +48,7 @@
 ║         │                                                                    ║
 ║         ▼                                                                    ║
 ║  ┌─────────────────────────────────────────────┐                            ║
-║  │  Frontend  (Next.js 15 — localhost:3000)     │                            ║
+║  │  Frontend  (Next.js 15, localhost:3000)      │                            ║
 ║  │                                              │                            ║
 ║  │  • Landing page  →  /drug/[slug]             │                            ║
 ║  │  • Investigation animation (AgentRunStep     │                            ║
@@ -60,7 +60,7 @@
 ║                 │  GET /api/dossier/:runId/events  (SSE stream)              ║
 ║                 ▼                                                            ║
 ║  ┌─────────────────────────────────────────────┐                            ║
-║  │  Backend  (FastAPI — localhost:8000)         │                            ║
+║  │  Backend  (FastAPI, localhost:8000)          │                            ║
 ║  │                                              │                            ║
 ║  │  • POST /api/investigate  →  starts run      │                            ║
 ║  │  • GET  /api/dossier/:id/events  →  SSE      │                            ║
@@ -115,7 +115,7 @@
 
 ## Agent Hierarchy
 
-DrugThread uses **four Strands agents** with selective subagent fan-out. The hierarchy is deliberate — Label Analyst and Case Synthesizer are flat, Network Investigator and Trial Historian fan out.
+DrugThread uses **four Strands agents** with selective subagent fan-out. The hierarchy is deliberate: Label Analyst and Case Synthesizer are flat, Network Investigator and Trial Historian fan out.
 
 | Agent | Role | Subagents | Data Source |
 |---|---|---|---|
@@ -124,18 +124,18 @@ DrugThread uses **four Strands agents** with selective subagent fan-out. The hie
 | **Trial Historian** | Reconstructs clinical development timeline including failures | Setback Investigator (1 per failed trial, capped at 2-3) | ClinicalTrials.gov + Bright Data |
 | **Case Synthesizer** | Merges all three into cross-sectional Findings | None (merge-only) | Upstream agent output |
 
-**Confidence derivation rule:** `confidence = lowest Evidence.authority among a finding's evidenceIds`. Authority hierarchy: `primary > secondary > context`. Never asserted by the model — enforced in the validator.
+**Confidence derivation rule:** `confidence = lowest Evidence.authority among a finding's evidenceIds`. Authority hierarchy: `primary > secondary > context`. Never asserted by the model, enforced in the validator.
 
 ---
 
 ## MCP Servers & API Keys
 
-| MCP Server | URI | Purpose | API Key Owner |
+| MCP Server | URI | Purpose | API Key |
 |---|---|---|---|
-| **Strands Agents** | `uvx strands-agents-mcp-server` | Agent orchestration + LLM execution layer | `OPENAI_API_KEY` in `backend/.env` — team key |
-| **Convoke** | `https://mcp.convoke.bio/mcp` | Biopharma knowledge graph — protein interactions, drug targets, biological pathways | Connected via claude.ai custom connectors — **no REST key in .env** |
+| **Strands Agents** | `uvx strands-agents-mcp-server` | Agent orchestration + LLM execution layer | `OPENAI_API_KEY` in `backend/.env`, team key |
+| **Convoke** | `https://mcp.convoke.bio/mcp` | Biopharma knowledge graph: protein interactions, drug targets, biological pathways | Connected via claude.ai custom connectors, no REST key in `.env` |
 
-**Convoke note:** Nesh connected Convoke through the claude.ai MCP connector UI. No token required in `.env` for hackathon use. If a direct REST key is needed for the production backend, add it as `CONVOKE_API_KEY`.
+**Convoke note:** Connected through the claude.ai MCP connector UI. No token required in `.env` for hackathon use. If a direct REST key is needed for the production backend, add it as `CONVOKE_API_KEY`.
 
 ---
 
@@ -143,12 +143,12 @@ DrugThread uses **four Strands agents** with selective subagent fan-out. The hie
 
 | Source | Access | Used For |
 |---|---|---|
-| **openFDA** | Public REST API — no key required | FDA drug labels, adverse events, drug interactions |
-| **ClinicalTrials.gov** | Public REST API — no key required | Trial registry, phases, outcomes, termination reasons |
+| **openFDA** | Public REST API, no key required | FDA drug labels, adverse events, drug interactions |
+| **ClinicalTrials.gov** | Public REST API, no key required | Trial registry, phases, outcomes, termination reasons |
 | **Bright Data** | `BRIGHT_DATA_API_KEY` in `backend/.env` | Gap-filling investigation: sponsor press releases, publication abstracts, conference reports |
 | **Convoke** | Via MCP | Biological networks, protein targets, mechanism pathways |
 
-**Data source priority (spec §17):** openFDA and ClinicalTrials.gov are authoritative. Bright Data is the gap-filling layer — only invoked when structured sources are incomplete.
+openFDA and ClinicalTrials.gov are authoritative. Bright Data is the gap-filling layer, only invoked when structured sources are incomplete.
 
 ---
 
@@ -158,16 +158,16 @@ Each completed investigation produces a `DrugDossier` with four views:
 
 | View | Contents |
 |---|---|
-| **History** | Vertical clinical timeline — approvals, label expansions, failed trials. Setback events are clickable and open a Setback Drawer with what was tested, what happened, the public explanation, and what came next |
-| **Network** | Interactive biological network graph — drug nodes, relationship edges (same target / mechanism / indication), clickable node detail panel |
-| **Label** | Current FDA prescribing information — mechanism, indications, warnings, adverse reactions, all source-linked |
+| **History** | Vertical clinical timeline: approvals, label expansions, failed trials. Setback events are clickable and open a Setback Drawer with what was tested, what happened, the public explanation, and what came next |
+| **Network** | Interactive biological network graph: drug nodes, relationship edges (same target / mechanism / indication), clickable node detail panel |
+| **Label** | Current FDA prescribing information: mechanism, indications, warnings, adverse reactions, all source-linked |
 | **Agent Findings** | Cross-sectional insights synthesized from all three agents. Each finding has confidence, severity, reviewStatus, and links back to evidence sources |
 
 ---
 
 ## Evidence Model
 
-Every claim — `Finding`, `HistoryEvent`, `NetworkNode`, and label section — carries `evidenceIds: string[]` pointing into a shared `Evidence[]` array. Nothing is displayed without a source.
+Every claim (`Finding`, `HistoryEvent`, `NetworkNode`, and label section) carries `evidenceIds: string[]` pointing into a shared `Evidence[]` array. Nothing is displayed without a source.
 
 ```
 Evidence.authority:
@@ -189,10 +189,10 @@ DrugThread/
 │       └── index.ts              # Canonical DrugDossier TypeScript contract
 │                                 # Frontend fixture and backend both implement this
 │
-├── frontend/                     # Next.js 15 — localhost:3000
+├── frontend/                     # Next.js 15, localhost:3000
 │   ├── app/
 │   │   ├── layout.tsx            # Root layout, theme toggle, anti-flash script
-│   │   ├── page.tsx              # Landing — search input + quick pills
+│   │   ├── page.tsx              # Landing: search input + quick pills
 │   │   └── drug/[slug]/
 │   │       └── page.tsx          # Dossier page (investigation → reveal)
 │   ├── components/
@@ -211,7 +211,7 @@ DrugThread/
 │       ├── fixture.ts                 # Keytruda hand-authored fixture (dev-time)
 │       └── useInvestigationAnimation.ts  # Step-by-step animation hook
 │
-├── backend/                      # FastAPI — localhost:8000
+├── backend/                      # FastAPI, localhost:8000
 │   ├── agents/
 │   │   ├── label_analyst/        # FDA label extraction agent
 │   │   ├── network_investigator/ # Biological network + 3 subagents
@@ -248,7 +248,7 @@ DrugThread/
 - OpenAI API key (for Strands agent LLM execution)
 - Bright Data API key (for gap-filling investigation layer)
 
-### 1 — Frontend (works standalone with fixture data)
+### 1 - Frontend (works standalone with fixture data)
 
 ```bash
 cd DrugThread/frontend
@@ -257,9 +257,9 @@ npm run dev
 # → http://localhost:3000
 ```
 
-Open `http://localhost:3000`, search **Keytruda** or **Pembrolizumab**. The full investigation animation and dossier run from the local fixture — no backend required.
+Open `http://localhost:3000`, search **Keytruda** or **Pembrolizumab**. The full investigation animation and dossier run from the local fixture with no backend required.
 
-### 2 — Backend
+### 2 - Backend
 
 ```bash
 cd DrugThread
@@ -280,18 +280,18 @@ uvicorn backend.api.main:app --reload --port 8000
 # → http://localhost:8000
 ```
 
-### 3 — Connect MCP Servers (for development with Claude Code)
+### 3 - Connect MCP Servers (for development with Claude Code)
 
 **Strands Agents:**
 ```bash
 claude mcp add strands uvx strands-agents-mcp-server
 ```
 
-**Convoke** — connect via claude.ai custom connectors UI:
+**Convoke** - connect via claude.ai custom connectors UI:
 - URL: `https://mcp.convoke.bio/mcp`
 - No API key required for hackathon use
 
-### 4 — Wire Frontend to Real Backend
+### 4 - Wire Frontend to Real Backend
 
 When backend is ready, replace the one line in `frontend/lib/fixture.ts`:
 
@@ -310,35 +310,14 @@ The SSE animation (`useInvestigationAnimation`) swaps to a real-time stream hook
 
 ---
 
-## Hero Drug
-
-**Keytruda (pembrolizumab)** is the primary demo drug — all fixtures, snapshots, and demo paths are optimized for it.
-
-Backup drugs: **Semaglutide**, **Adalimumab (Humira)**
-
-URLs:
-- `http://localhost:3000/drug/keytruda`
-- `http://localhost:3000/drug/pembrolizumab` (alias)
-
----
-
 ## Team
 
 | Person | Responsibility |
 |---|---|
-| **Nesh** | Frontend — Next.js app, investigation animation, all UI components, shared TypeScript contract, fixture data |
-| **Sahil** | Backend — Strands agent implementations, API routes, data source integrations, evidence validator |
+| **Nesh** | Frontend: Next.js app, investigation animation, all UI components, shared TypeScript contract, fixture data |
+| **Sahil** | Backend: Strands agent implementations, API routes, data source integrations, evidence validator |
 
 Both sides build against the shared `DrugDossier` type in `shared/types/index.ts`. Frontend uses the hand-authored `fixture.ts` until backend is wired in.
-
----
-
-## Hard Rules (from spec)
-
-- **Never invent a reason for a trial failure.** Use "Publicly reported reason" or "No reliable public explanation found." Never claim AI determined why a trial failed.
-- **No medical advice.** No dosage recommendations, treatment suggestions, or diagnostic claims.
-- **Don't expose model chain-of-thought.** Agent trace shows tool name, action, data source, result summary, and status — not LLM reasoning.
-- **Network stays small.** 5-10 nodes max. Subagent fan-out capped at 2-3 setback investigations per drug.
 
 ---
 
