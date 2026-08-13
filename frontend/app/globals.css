@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Color tokens ── */
+:root {
+  /* Dark mode (default) */
+  --dt-bg:       7 12 24;       /* #070c18 */
+  --dt-surface:  13 20 34;      /* #0d1422 */
+  --dt-surface2: 19 28 46;      /* #131c2e */
+  --dt-border:   30 42 61;      /* #1e2a3d */
+  --dt-text:     226 232 240;   /* #e2e8f0 */
+  --dt-muted:    100 116 139;   /* #64748b */
+  --dt-accent:   56 189 248;    /* #38bdf8 */
+  --dt-success:  52 211 153;    /* #34d399 */
+  --dt-danger:   248 113 113;   /* #f87171 */
+  --dt-warning:  251 191 36;    /* #fbbf24 */
+}
+
+html.light {
+  --dt-bg:       248 250 252;   /* #f8fafc — near-white with blue tint */
+  --dt-surface:  255 255 255;   /* #ffffff */
+  --dt-surface2: 241 245 249;   /* #f1f5f9 */
+  --dt-border:   203 213 225;   /* #cbd5e1 */
+  --dt-text:     15 23 42;      /* #0f172a */
+  --dt-muted:    100 116 139;   /* #64748b */
+  --dt-accent:   2 132 199;     /* #0284c7 — sky-600 */
+  --dt-success:  22 163 74;     /* #16a34a — green-600 */
+  --dt-danger:   220 38 38;     /* #dc2626 — red-600 */
+  --dt-warning:  202 138 4;     /* #ca8a04 — yellow-600 */
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.3s ease forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e2a3d;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2d3d57;
+  }
+}
