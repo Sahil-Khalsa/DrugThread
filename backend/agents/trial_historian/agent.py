@@ -11,6 +11,7 @@ import os
 from strands import Agent
 from strands.models.openai import OpenAIModel
 
+from evidence.validator import filter_grounded
 from integrations.clinicaltrials.client import TrialRecord
 from models import Evidence, HistoryEvent, HistoryEventList
 from resolver import DrugIdentity
@@ -76,18 +77,6 @@ def _trial_summary_block(trials: list[TrialRecord]) -> str:
     return "\n".join(lines)
 
 
-def _validate_events(events: list[HistoryEvent], known_evidence_ids: set[str]) -> list[HistoryEvent]:
-    """Enforce spec §30: reject events with no evidence, or evidence we didn't actually provide."""
-    valid = []
-    for e in events:
-        cited = [eid for eid in e.evidenceIds if eid in known_evidence_ids]
-        if not cited:
-            continue
-        e.evidenceIds = cited
-        valid.append(e)
-    return valid
-
-
 def build_history(
     identity: DrugIdentity,
     general_trials: list[TrialRecord],
@@ -115,5 +104,5 @@ def build_history(
     )
 
     result = agent.structured_output(HistoryEventList, prompt)
-    validated = _validate_events(result.events, known_evidence_ids)
+    validated = filter_grounded(result.events, known_evidence_ids)
     return validated, evidence

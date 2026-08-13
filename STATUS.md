@@ -20,11 +20,11 @@ Contract both sides build against: shared `DrugDossier` type (spec §19) via `fi
 ## P0 — Must Have
 
 ### Backend (Sahil)
-- [ ] Drug resolver (name → identity, e.g. Keytruda → Pembrolizumab)
-- [ ] ClinicalTrials.gov integration + Trial Historian agent (major trials, approvals, setbacks)
-- [ ] Setback Investigator subagent (Bright Data search per failed trial, capped 2–3)
-- [ ] Evidence normalization + evidence-required validator (rejects/downgrades zero-evidence output)
-- [ ] `POST /api/dossier` returning data matching `DrugDossier` contract
+- [x] Drug resolver (name → identity, e.g. Keytruda → Pembrolizumab) — live-tested
+- [x] ClinicalTrials.gov integration + Trial Historian agent (major trials, approvals, setbacks) — live-tested
+- [~] Setback Investigator subagent (Bright Data search per failed trial, capped 2–3) — code done, blocked on `BRIGHT_DATA_SERP_ZONE` (no zone created on the Bright Data account yet)
+- [x] Evidence normalization + evidence-required validator (rejects/downgrades zero-evidence output) — shared `backend/evidence/validator.py`
+- [~] `POST /api/dossier` returning data matching `DrugDossier` contract — live and working for identity + history; label/network/findings sections still return empty (built separately, not wired in yet — see P1)
 
 ### Frontend (Nesh)
 - [ ] Search input + drug identity resolution UI
@@ -38,11 +38,11 @@ Contract both sides build against: shared `DrugDossier` type (spec §19) via `fi
 ## P1 — High Value
 
 ### Backend (Sahil)
-- [ ] Label Analyst agent + FDA/openFDA integration
-- [ ] Network Investigator agent + 3 relationship subagents (target/mechanism/indication), merged to 5–10 nodes
-- [ ] Case Synthesizer (dossier summary + 3–4 Agent Findings, each with `confidence` derived from evidence authority)
+- [x] Label Analyst agent + FDA/openFDA integration — live-tested (correctly disambiguates base product from combo formulations like KEYTRUDA QLEX)
+- [x] Network Investigator agent + 3 relationship subagents (target/mechanism/indication), merged to 5–10 nodes — live-tested, all nodes real/verified via openFDA
+- [~] Case Synthesizer (dossier summary + 3–4 Agent Findings, each with `confidence` derived from evidence authority) — code written, not yet live-tested
 - [ ] Streamed investigation progress endpoint (`GET /api/dossier/:runId/events`)
-- [ ] Known-good full-run snapshot of hero drug captured as demo safety net (`fixtures/keytruda.snapshot.json`)
+- [ ] Known-good full-run snapshot of hero drug captured as demo safety net (`fixtures/keytruda.snapshot.json`) — blocked on wiring Label/Network/Synthesizer into `/api/dossier` first
 
 ### Frontend (Nesh)
 - [ ] Investigation progress animation (consumes streamed steps, shows subagent fan-out)
@@ -98,4 +98,6 @@ Contract both sides build against: shared `DrugDossier` type (spec §19) via `fi
 
 _(Log anything blocking progress here as it comes up — flaky API, ambiguous spec point, integration not responding, etc.)_
 
--
+- Bright Data account has a valid API key but no SERP zone created yet — Setback Investigator gracefully skips (doesn't crash) until `BRIGHT_DATA_SERP_ZONE` is set in `backend/.env`.
+- OpenAI org on the current key has a low 30K TPM rate limit — Label Analyst truncates label sections to 4000 chars each to stay under it. Worth knowing if other agents start throwing `RateLimitError`.
+- openFDA `.exact` field matching is case-sensitive (brand names are stored uppercase) and `pharm_class_moa` groups PD-1 and PD-L1 binders under the same class string — see comments in `integrations/fda/client.py` and `class_search.py`.

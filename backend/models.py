@@ -62,3 +62,53 @@ class SetbackInvestigation(BaseModel):
     whatHappenedNext: str
     evidenceIds: list[str]
     confidence: Literal["primary", "secondary", "context"]
+
+
+class NetworkNode(BaseModel):
+    id: str
+    name: str
+    brandName: str | None = None
+    genericName: str | None = None
+    target: str | None = None
+    mechanism: str | None = None
+    status: str | None = None
+    sharedIndications: list[str] = []
+    evidenceIds: list[str]
+
+
+class NetworkNodeList(BaseModel):
+    """Wrapper so Strands' structured_output has a single root model to target."""
+
+    nodes: list[NetworkNode]
+
+
+class NetworkEdge(BaseModel):
+    id: str
+    source: str
+    target: str
+    relationship: Literal["same_target", "same_mechanism", "shared_indication"]
+
+
+class Finding(BaseModel):
+    id: str
+    title: str
+    category: Literal["development", "network", "label", "regulatory"]
+    severity: Literal["info", "medium", "high"] | None = None
+    summary: str
+    evidenceIds: list[str]
+    confidence: Literal["primary", "secondary", "context"]
+    reviewStatus: Literal["unreviewed", "confirmed", "flagged"] = "unreviewed"
+    targetTab: Literal["label", "network", "history"]
+
+
+class DossierSummary(BaseModel):
+    description: str
+    mechanism: str | None = None
+    target: str | None = None
+
+
+class CaseSynthesis(BaseModel):
+    """Case Synthesizer output (spec §13, Agent 4) — merge-only, no new evidence."""
+
+    summary: DossierSummary
+    findings: list[Finding]
