@@ -41,3 +41,24 @@ Two developers, split along backend/intelligence vs. frontend/product lines with
 ## Demo target
 
 Hero drug is **Keytruda / pembrolizumab**; backups are **Semaglutide** and **Adalimumab** (spec §24). The hero demo must work without manual intervention — optimize reliability for it specifically rather than generic coverage of arbitrary drugs.
+
+# SPECIAL INSTRUCTION
+Do not make any changes until you have 95% confidence in what you need to build. Ask me follow up questions until you reach that confidence.
+
+## Applied Learning
+
+- Validate inputs before execution; bad inputs cause cascading failures.
+- Re-run tasks after fixing inputs; first outputs often incomplete.
+- Avoid redundant explanations; default to concise outputs.
+- Cache repeated results to reduce recomputation and tokens.
+- Prefer structured output over paragraphs for clarity and reuse.
+- Skip steps already completed unless state has changed.
+- Do not retry failing actions without modifying approach.
+- Use deterministic logic for validation instead of LLM reasoning.
+- Break tasks only when necessary; over-decomposition wastes tokens.
+- Avoid regenerating identical content; reuse previous outputs.
+- Validate file paths and dependencies before execution.
+- Limit tool usage; unnecessary calls increase latency and cost.
+- Prefer parallel execution for independent tasks.
+- Eliminate verbose reasoning unless explicitly required.
+- Detect and stop infinite or redundant loops early.
