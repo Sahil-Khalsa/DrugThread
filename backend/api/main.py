@@ -4,9 +4,12 @@ Run from the backend/ directory:
     uvicorn api.main:app --reload
 """
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 
 from resolver import resolve_drug
+
+load_dotenv()
 
 app = FastAPI(title="DrugThread API")
 
