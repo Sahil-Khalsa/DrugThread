@@ -1,0 +1,330 @@
+{
+  "drug": {
+    "id": "pembrolizumab",
+    "name": "Keytruda",
+    "genericName": "Pembrolizumab",
+    "brandName": "Keytruda",
+    "manufacturer": "Merck",
+    "status": "Approved"
+  },
+
+  "summary": {
+    "description": "Keytruda (pembrolizumab) is a PD-1 immune checkpoint inhibitor developed by Merck. It blocks the interaction between PD-1 and its ligands PD-L1/PD-L2, restoring T-cell mediated anti-tumor immune activity. It is approved across a broad range of solid tumor and hematologic indications.",
+    "mechanism": "PD-1 immune checkpoint inhibitor — blocks PD-1 receptor interaction with PD-L1/PD-L2, restoring T-cell anti-tumor activity.",
+    "target": "PD-1 (Programmed Death Receptor-1)"
+  },
+
+  "findings": [
+    {
+      "id": "finding-sclc-withdrawal",
+      "title": "Development Setback",
+      "category": "development",
+      "severity": "high",
+      "summary": "Merck voluntarily withdrew Keytruda's accelerated approval in metastatic small cell lung cancer in March 2021, after the confirmatory Phase 3 KEYNOTE-604 trial met its progression-free survival endpoint but failed to show a statistically significant overall-survival benefit.",
+      "evidenceIds": ["ev-merck-sclc-withdrawal", "ev-keynote604-ctgov", "ev-keynote604-pubmed"],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "history"
+    },
+    {
+      "id": "finding-mechanism-landscape",
+      "title": "Mechanism Landscape",
+      "category": "network",
+      "severity": "info",
+      "summary": "Four other approved therapies share or closely interact with Keytruda's PD-1/PD-L1 checkpoint-inhibition pathway: Opdivo and Libtayo target PD-1 directly, while Tecentriq and Imfinzi target the PD-L1 ligand.",
+      "evidenceIds": ["ev-fda-label", "ev-opdivo-label"],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "network"
+    },
+    {
+      "id": "finding-development-expansion",
+      "title": "Development Expansion",
+      "category": "development",
+      "severity": "info",
+      "summary": "Clinical development around pembrolizumab spans over 3,000 registered studies on ClinicalTrials.gov, including hundreds of combination trials — far beyond its original single-agent melanoma indication.",
+      "evidenceIds": ["ev-ctgov-aggregate"],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "history"
+    },
+    {
+      "id": "finding-label-signal",
+      "title": "Label Signal",
+      "category": "label",
+      "severity": "medium",
+      "summary": "The FDA label carries multiple immune-mediated warning categories — pneumonitis, colitis, hepatitis, endocrinopathies, nephritis, and severe skin reactions — reflecting the systemic immune-activation risk inherent to PD-1 blockade.",
+      "evidenceIds": ["ev-fda-label"],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "label"
+    }
+  ],
+
+  "label": {
+    "indications": [
+      "Melanoma",
+      "Non-Small Cell Lung Cancer (NSCLC)",
+      "Head and Neck Squamous Cell Carcinoma",
+      "Classical Hodgkin Lymphoma",
+      "Urothelial Carcinoma"
+    ],
+    "mechanism": "PD-1 immune checkpoint inhibitor — blocks PD-1 receptor interaction with PD-L1/PD-L2, restoring T-cell anti-tumor activity.",
+    "target": "PD-1 (Programmed Death Receptor-1)",
+    "warnings": [
+      "Immune-mediated pneumonitis",
+      "Immune-mediated colitis",
+      "Immune-mediated hepatitis",
+      "Immune-mediated endocrinopathies (thyroid, adrenal, pituitary, type 1 diabetes)",
+      "Immune-mediated nephritis",
+      "Severe and life-threatening skin reactions",
+      "Infusion-related reactions"
+    ],
+    "adverseReactions": [
+      "Fatigue",
+      "Pruritus",
+      "Diarrhea",
+      "Decreased appetite",
+      "Rash",
+      "Pyrexia",
+      "Cough",
+      "Nausea"
+    ],
+    "evidenceIds": ["ev-fda-label"]
+  },
+
+  "network": {
+    "nodes": [
+      {
+        "id": "nivolumab",
+        "name": "Opdivo",
+        "brandName": "Opdivo",
+        "genericName": "Nivolumab",
+        "target": "PD-1",
+        "mechanism": "PD-1 immune checkpoint inhibitor",
+        "status": "Approved",
+        "sharedIndications": ["Melanoma", "NSCLC", "Renal Cell Carcinoma"],
+        "evidenceIds": ["ev-opdivo-label"]
+      },
+      {
+        "id": "cemiplimab",
+        "name": "Libtayo",
+        "brandName": "Libtayo",
+        "genericName": "Cemiplimab",
+        "target": "PD-1",
+        "mechanism": "PD-1 immune checkpoint inhibitor",
+        "status": "Approved",
+        "sharedIndications": ["NSCLC"],
+        "evidenceIds": []
+      },
+      {
+        "id": "atezolizumab",
+        "name": "Tecentriq",
+        "brandName": "Tecentriq",
+        "genericName": "Atezolizumab",
+        "target": "PD-L1",
+        "mechanism": "PD-L1 immune checkpoint inhibitor",
+        "status": "Approved",
+        "sharedIndications": ["NSCLC"],
+        "evidenceIds": []
+      },
+      {
+        "id": "durvalumab",
+        "name": "Imfinzi",
+        "brandName": "Imfinzi",
+        "genericName": "Durvalumab",
+        "target": "PD-L1",
+        "mechanism": "PD-L1 immune checkpoint inhibitor",
+        "status": "Approved",
+        "sharedIndications": ["NSCLC"],
+        "evidenceIds": []
+      },
+      {
+        "id": "ipilimumab",
+        "name": "Yervoy",
+        "brandName": "Yervoy",
+        "genericName": "Ipilimumab",
+        "target": "CTLA-4",
+        "mechanism": "CTLA-4 immune checkpoint inhibitor",
+        "status": "Approved",
+        "sharedIndications": ["Melanoma"],
+        "evidenceIds": []
+      }
+    ],
+    "edges": [
+      { "id": "edge-nivolumab", "source": "pembrolizumab", "target": "nivolumab", "relationship": "same_target" },
+      { "id": "edge-cemiplimab", "source": "pembrolizumab", "target": "cemiplimab", "relationship": "same_target" },
+      { "id": "edge-atezolizumab", "source": "pembrolizumab", "target": "atezolizumab", "relationship": "same_mechanism" },
+      { "id": "edge-durvalumab", "source": "pembrolizumab", "target": "durvalumab", "relationship": "same_mechanism" },
+      { "id": "edge-ipilimumab", "source": "pembrolizumab", "target": "ipilimumab", "relationship": "shared_indication" }
+    ]
+  },
+
+  "history": {
+    "events": [
+      {
+        "id": "hist-2011-early-dev",
+        "year": 2011,
+        "title": "Early clinical development begins",
+        "type": "trial_started",
+        "summary": "First-in-human, early-phase studies of pembrolizumab begin.",
+        "evidenceIds": [],
+        "confidence": "context",
+        "importance": "low"
+      },
+      {
+        "id": "hist-2014-first-approval",
+        "date": "2014-09-04",
+        "year": 2014,
+        "title": "First FDA approval",
+        "type": "approval",
+        "summary": "Keytruda receives accelerated FDA approval for advanced/unresectable melanoma — the first PD-1 inhibitor approved in the US.",
+        "indication": "Melanoma",
+        "evidenceIds": ["ev-fda-label"],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "hist-2015-nsclc-approval",
+        "date": "2015-10-02",
+        "year": 2015,
+        "title": "NSCLC indication approved",
+        "type": "indication_expansion",
+        "summary": "Accelerated approval granted for PD-L1-expressing advanced NSCLC, meaningfully expanding development beyond melanoma.",
+        "indication": "Non-Small Cell Lung Cancer",
+        "evidenceIds": ["ev-fda-label"],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "hist-2019-sclc-accelerated-approval",
+        "date": "2019-06-17",
+        "year": 2019,
+        "title": "Accelerated approval in small cell lung cancer",
+        "type": "indication_expansion",
+        "summary": "Accelerated approval granted for metastatic SCLC based on tumor response data from KEYNOTE-158 and KEYNOTE-028, contingent on a confirmatory trial establishing an overall-survival benefit.",
+        "indication": "Small Cell Lung Cancer",
+        "evidenceIds": ["ev-merck-sclc-withdrawal"],
+        "confidence": "primary",
+        "importance": "medium"
+      },
+      {
+        "id": "hist-2020-keynote604-result",
+        "date": "2020-01-01",
+        "year": 2020,
+        "title": "Confirmatory trial misses overall-survival endpoint",
+        "type": "trial_result",
+        "summary": "Phase 3 KEYNOTE-604 meets its progression-free survival endpoint but does not reach statistical significance on overall survival — the endpoint the SCLC accelerated approval was contingent on.",
+        "phase": "Phase 3",
+        "trialId": "NCT03066778",
+        "indication": "Small Cell Lung Cancer",
+        "status": "Completed",
+        "evidenceIds": ["ev-keynote604-ctgov", "ev-keynote604-pubmed"],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "hist-2021-sclc-withdrawal",
+        "date": "2021-03-01",
+        "year": 2021,
+        "title": "SCLC indication voluntarily withdrawn",
+        "type": "setback",
+        "summary": "Merck voluntarily withdraws the US indication for metastatic SCLC in consultation with the FDA, after the confirmatory trial failed to establish the required overall-survival benefit. Publicly reported reason: KEYNOTE-604 did not meet its overall-survival endpoint.",
+        "indication": "Small Cell Lung Cancer",
+        "status": "Withdrawn",
+        "evidenceIds": ["ev-merck-sclc-withdrawal"],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "hist-2023-continued-expansion",
+        "year": 2023,
+        "title": "Continued expansion into perioperative settings",
+        "type": "strategy_change",
+        "summary": "Development continues to expand into adjuvant and neoadjuvant (perioperative) settings across multiple tumor types.",
+        "evidenceIds": ["ev-ctgov-aggregate"],
+        "confidence": "secondary",
+        "importance": "medium"
+      }
+    ]
+  },
+
+  "evidence": [
+    {
+      "id": "ev-fda-label",
+      "sourceType": "fda",
+      "title": "KEYTRUDA (pembrolizumab) FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22pembrolizumab%22",
+      "retrievedAt": "2026-08-13",
+      "authority": "primary"
+    },
+    {
+      "id": "ev-opdivo-label",
+      "sourceType": "fda",
+      "title": "OPDIVO (nivolumab) FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22nivolumab%22",
+      "retrievedAt": "2026-08-13",
+      "authority": "primary"
+    },
+    {
+      "id": "ev-ctgov-aggregate",
+      "sourceType": "clinicaltrials",
+      "title": "ClinicalTrials.gov search: pembrolizumab",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/search?term=pembrolizumab",
+      "excerpt": "3,063 total registered studies mentioning pembrolizumab; 382 terminated (live count, retrieved 2026-08-13).",
+      "retrievedAt": "2026-08-13",
+      "authority": "primary"
+    },
+    {
+      "id": "ev-keynote604-ctgov",
+      "sourceType": "clinicaltrials",
+      "title": "A Study of Pembrolizumab (MK-3475) in Combination With Etoposide/Platinum for Extensive Stage Small Cell Lung Cancer (KEYNOTE-604)",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT03066778",
+      "retrievedAt": "2026-08-13",
+      "authority": "primary"
+    },
+    {
+      "id": "ev-keynote604-pubmed",
+      "sourceType": "publication",
+      "title": "Pembrolizumab or Placebo Plus Etoposide and Platinum as First-Line Therapy for Extensive-Stage Small-Cell Lung Cancer: Randomized, Double-Blind, Phase III KEYNOTE-604 Study",
+      "publisher": "Journal of Clinical Oncology (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32468956/",
+      "retrievedAt": "2026-08-13",
+      "authority": "secondary"
+    },
+    {
+      "id": "ev-merck-sclc-withdrawal",
+      "sourceType": "sponsor",
+      "title": "Merck Provides Update on KEYTRUDA (pembrolizumab) Indication in Metastatic Small Cell Lung Cancer in the US",
+      "publisher": "Merck",
+      "url": "https://www.merck.com/news/merck-provides-update-on-keytruda-pembrolizumab-indication-in-metastatic-small-cell-lung-cancer-in-the-us/",
+      "date": "2021-03-01",
+      "retrievedAt": "2026-08-13",
+      "authority": "primary"
+    }
+  ],
+
+  "agentRun": {
+    "runId": "fixture-run-keytruda-001",
+    "status": "complete",
+    "sourcesChecked": 6,
+    "steps": [
+      { "id": "s1", "label": "Resolving drug identity", "status": "complete" },
+      { "id": "s2", "label": "Retrieving FDA label", "status": "complete" },
+      { "id": "s3", "label": "Identifying biological target and mechanism", "status": "complete" },
+      { "id": "s4", "label": "Searching clinical trial history (3,063 records)", "status": "complete" },
+      { "id": "s5", "label": "Investigating major setbacks", "status": "complete" },
+      { "id": "s5a", "label": "Setback Investigator: SCLC indication withdrawal", "status": "complete", "parentStepId": "s5" },
+      { "id": "s6", "label": "Mapping mechanism neighbors", "status": "complete" },
+      { "id": "s6a", "label": "Target Neighbor Subagent", "status": "complete", "parentStepId": "s6" },
+      { "id": "s6b", "label": "Mechanism Neighbor Subagent", "status": "complete", "parentStepId": "s6" },
+      { "id": "s6c", "label": "Indication Neighbor Subagent", "status": "complete", "parentStepId": "s6" },
+      { "id": "s7", "label": "Cross-checking sources", "status": "complete" },
+      { "id": "s8", "label": "Synthesizing case findings", "status": "complete" }
+    ]
+  }
+}
