@@ -24,7 +24,7 @@ Contract both sides build against: shared `DrugDossier` type (spec §19) via `fi
 - [x] ClinicalTrials.gov integration + Trial Historian agent (major trials, approvals, setbacks) — live-tested
 - [~] Setback Investigator subagent (Bright Data search per failed trial, capped 2–3) — code done, blocked on `BRIGHT_DATA_SERP_ZONE` (no zone created on the Bright Data account yet)
 - [x] Evidence normalization + evidence-required validator (rejects/downgrades zero-evidence output) — shared `backend/evidence/validator.py`
-- [~] `POST /api/dossier` returning data matching `DrugDossier` contract — live and working for identity + history; label/network/findings sections still return empty (built separately, not wired in yet — see P1)
+- [x] `POST /api/dossier` returning data matching `DrugDossier` contract — fully wired and live-tested: identity, label, network, history, findings, evidence all populated from real agent output
 
 ### Frontend (Nesh)
 - [ ] Search input + drug identity resolution UI
@@ -40,9 +40,9 @@ Contract both sides build against: shared `DrugDossier` type (spec §19) via `fi
 ### Backend (Sahil)
 - [x] Label Analyst agent + FDA/openFDA integration — live-tested (correctly disambiguates base product from combo formulations like KEYTRUDA QLEX)
 - [x] Network Investigator agent + 3 relationship subagents (target/mechanism/indication), merged to 5–10 nodes — live-tested, all nodes real/verified via openFDA
-- [~] Case Synthesizer (dossier summary + 3–4 Agent Findings, each with `confidence` derived from evidence authority) — code written, not yet live-tested
-- [ ] Streamed investigation progress endpoint (`GET /api/dossier/:runId/events`)
-- [ ] Known-good full-run snapshot of hero drug captured as demo safety net (`fixtures/keytruda.snapshot.json`) — blocked on wiring Label/Network/Synthesizer into `/api/dossier` first
+- [x] Case Synthesizer (dossier summary + 3–4 Agent Findings, each with `confidence` derived from evidence authority) — live-tested, all findings grounded against the real evidence pool
+- [x] Streamed investigation progress endpoint (`GET /api/dossier/:runId/events`) — live-tested via real SSE stream (`POST /api/dossier/stream` + `GET /api/dossier/:runId/events`), confirmed incremental delivery over ~40s, not buffered
+- [x] Known-good full-run snapshot of hero drug captured as demo safety net (`fixtures/keytruda.snapshot.json`) — captured from a real live run, distinct from the hand-authored `keytruda.json` dev fixture
 
 ### Frontend (Nesh)
 - [ ] Investigation progress animation (consumes streamed steps, shows subagent fan-out)

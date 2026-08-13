@@ -1,0 +1,853 @@
+{
+  "drug": {
+    "id": "pembrolizumab",
+    "name": "Keytruda",
+    "genericName": "Pembrolizumab",
+    "brandName": "Keytruda",
+    "manufacturer": "Merck",
+    "status": "Approved"
+  },
+  "summary": {
+    "description": "Keytruda (Pembrolizumab) is a monoclonal antibody that targets the PD-1 receptor on T cells, enhancing the immune system's ability to fight cancer. It is approved for multiple cancer types, including melanoma and non-small cell lung cancer, but carries risks of immune-mediated adverse reactions and other serious side effects.",
+    "mechanism": "Pembrolizumab is a monoclonal antibody that binds to the PD-1 receptor on T cells, blocking its interaction with PD-L1 and PD-L2.",
+    "target": "PD-1"
+  },
+  "findings": [
+    {
+      "id": "finding-1",
+      "title": "Multiple Trial Terminations Involving Pembrolizumab",
+      "category": "development",
+      "severity": "high",
+      "summary": "Several clinical trials involving Pembrolizumab were terminated due to issues such as lack of tolerability, unexpected pulmonary toxicity, and lack of efficacy. Notably, a trial combining Pembrolizumab with Capmatinib was terminated due to tolerability issues, and another with Abemaciclib due to pulmonary toxicity.",
+      "evidenceIds": [
+        "ev-NCT04139317",
+        "ev-NCT03938337",
+        "ev-NCT05256381"
+      ],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "history"
+    },
+    {
+      "id": "finding-2",
+      "title": "Pembrolizumab's Shared Mechanism with CTLA-4 Inhibitors",
+      "category": "network",
+      "severity": "medium",
+      "summary": "Pembrolizumab shares a similar immune checkpoint inhibition mechanism with CTLA-4 inhibitors like YERVOY and IMJUDO, which also aim to enhance the immune response against tumors.",
+      "evidenceIds": [
+        "ev-fda-YERVOY",
+        "ev-fda-IMJUDO"
+      ],
+      "confidence": "secondary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "network"
+    },
+    {
+      "id": "finding-3",
+      "title": "Warnings on Immune-Mediated Adverse Reactions",
+      "category": "label",
+      "severity": "high",
+      "summary": "Keytruda's label includes warnings about serious immune-mediated adverse reactions, which align with the trial terminations due to safety concerns, such as pulmonary toxicity observed in combination therapies.",
+      "evidenceIds": [
+        "ev-fda-label",
+        "ev-NCT03938337"
+      ],
+      "confidence": "primary",
+      "reviewStatus": "unreviewed",
+      "targetTab": "label"
+    }
+  ],
+  "label": {
+    "indications": [
+      "Melanoma",
+      "Non-Small Cell Lung Cancer",
+      "Malignant Pleural Mesothelioma",
+      "Head and Neck Squamous Cell Cancer",
+      "Classical Hodgkin Lymphoma",
+      "Primary Mediastinal Large B-Cell Lymphoma",
+      "Urothelial Cancer"
+    ],
+    "mechanism": "Pembrolizumab is a monoclonal antibody that binds to the PD-1 receptor on T cells, blocking its interaction with PD-L1 and PD-L2. This releases the PD-1 pathway-mediated inhibition of the immune response, enhancing the anti-tumor immune response.",
+    "target": "PD-1",
+    "warnings": [
+      "Immune-Mediated Adverse Reactions",
+      "Infusion-related reactions",
+      "Complications of allogeneic HSCT",
+      "Embryo-Fetal toxicity"
+    ],
+    "adverseReactions": [
+      "fatigue",
+      "musculoskeletal pain",
+      "rash",
+      "diarrhea",
+      "pyrexia",
+      "cough",
+      "decreased appetite",
+      "pruritus",
+      "dyspnea",
+      "constipation",
+      "pain",
+      "abdominal pain",
+      "nausea",
+      "hypothyroidism"
+    ],
+    "evidenceIds": [
+      "ev-fda-label"
+    ]
+  },
+  "network": {
+    "nodes": [
+      {
+        "id": "tislelizumab-jsgr",
+        "name": "TEVIMBRA",
+        "brandName": "TEVIMBRA",
+        "genericName": "TISLELIZUMAB-JSGR",
+        "target": "PD-1",
+        "mechanism": "PD-1-directed antibody interaction",
+        "status": "Approved",
+        "sharedIndications": [],
+        "evidenceIds": [
+          "ev-fda-TEVIMBRA"
+        ]
+      },
+      {
+        "id": "dostarlimab",
+        "name": "Jemperli",
+        "brandName": "Jemperli",
+        "genericName": "DOSTARLIMAB",
+        "target": "PD-1",
+        "mechanism": "PD-1-directed antibody interaction",
+        "status": "Approved",
+        "sharedIndications": [],
+        "evidenceIds": [
+          "ev-fda-JEMPERLI"
+        ]
+      },
+      {
+        "id": "retifanlimab-dlwr",
+        "name": "ZYNYZ",
+        "brandName": "ZYNYZ",
+        "genericName": "RETIFANLIMAB-DLWR",
+        "target": "PD-1",
+        "mechanism": "PD-1-directed antibody interaction",
+        "status": "Approved",
+        "sharedIndications": [],
+        "evidenceIds": [
+          "ev-fda-ZYNYZ"
+        ]
+      },
+      {
+        "id": "ipilimumab",
+        "name": "YERVOY",
+        "brandName": "YERVOY",
+        "genericName": "IPILIMUMAB",
+        "target": "CTLA-4",
+        "mechanism": "Ipilimumab is a monoclonal antibody that blocks CTLA-4, a different immune checkpoint receptor on T cells. This blockade enhances T-cell activation and proliferation, promoting an anti-tumor immune response.",
+        "status": "Approved",
+        "sharedIndications": [],
+        "evidenceIds": [
+          "ev-fda-YERVOY"
+        ]
+      },
+      {
+        "id": "tremelimumab",
+        "name": "IMJUDO",
+        "brandName": "IMJUDO",
+        "genericName": "TREMELIMUMAB",
+        "target": "CTLA-4",
+        "mechanism": "Tremelimumab is another monoclonal antibody that targets and blocks CTLA-4, similar to Ipilimumab, enhancing the immune response against tumors.",
+        "status": "Approved",
+        "sharedIndications": [],
+        "evidenceIds": [
+          "ev-fda-IMJUDO"
+        ]
+      },
+      {
+        "id": "trametinib",
+        "name": "Mekinist",
+        "brandName": "Mekinist",
+        "genericName": "TRAMETINIB",
+        "target": null,
+        "mechanism": null,
+        "status": "Approved",
+        "sharedIndications": [
+          "Melanoma"
+        ],
+        "evidenceIds": [
+          "ev-fda-MEKINIST"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-tislelizumab-jsgr",
+        "source": "pembrolizumab",
+        "target": "tislelizumab-jsgr",
+        "relationship": "same_target"
+      },
+      {
+        "id": "edge-dostarlimab",
+        "source": "pembrolizumab",
+        "target": "dostarlimab",
+        "relationship": "same_target"
+      },
+      {
+        "id": "edge-retifanlimab-dlwr",
+        "source": "pembrolizumab",
+        "target": "retifanlimab-dlwr",
+        "relationship": "same_target"
+      },
+      {
+        "id": "edge-ipilimumab",
+        "source": "pembrolizumab",
+        "target": "ipilimumab",
+        "relationship": "same_mechanism"
+      },
+      {
+        "id": "edge-tremelimumab",
+        "source": "pembrolizumab",
+        "target": "tremelimumab",
+        "relationship": "same_mechanism"
+      },
+      {
+        "id": "edge-trametinib",
+        "source": "pembrolizumab",
+        "target": "trametinib",
+        "relationship": "shared_indication"
+      }
+    ]
+  },
+  "history": {
+    "events": [
+      {
+        "id": "1",
+        "date": "2020-01-22",
+        "year": 2020,
+        "title": "Trial Termination: Capmatinib Plus Pembrolizumab vs Pembrolizumab Alone",
+        "type": "termination",
+        "summary": "The trial was terminated due to the lack of tolerability observed in patients treated with capmatinib and pembrolizumab in the combination arm as compared to patients treated with pembrolizumab alone.",
+        "phase": "PHASE2",
+        "trialId": "NCT04139317",
+        "indication": "NSCLC With PD-L1\u00e2\u2030\u00a5 50%",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT04139317"
+        ],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "2",
+        "date": "2019-10-08",
+        "year": 2019,
+        "title": "Trial Termination: Abemaciclib and Pembrolizumab in Head and Neck Cancer",
+        "type": "termination",
+        "summary": "The trial was terminated due to a higher incidence of pulmonary toxicity than expected, including death.",
+        "phase": "PHASE2",
+        "trialId": "NCT03938337",
+        "indication": "Metastatic or Recurrent Head and Neck Cancer",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT03938337"
+        ],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "3",
+        "date": "2022-06-21",
+        "year": 2022,
+        "title": "Trial Termination: SOT101 in Combination With Pembrolizumab",
+        "type": "termination",
+        "summary": "The trial was terminated due to lack of expected efficacy shown at the time of the interim analysis.",
+        "phase": "PHASE2",
+        "trialId": "NCT05256381",
+        "indication": "Selected Advanced Solid Tumors",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT05256381"
+        ],
+        "confidence": "primary",
+        "importance": "high"
+      },
+      {
+        "id": "4",
+        "date": "2023-12-12",
+        "year": 2023,
+        "title": "Trial Termination: CLN-617 Alone and in Combination With Pembrolizumab",
+        "type": "termination",
+        "summary": "The trial was terminated due to a company decision.",
+        "phase": "PHASE1",
+        "trialId": "NCT06035744",
+        "indication": "Advanced Solid Tumors",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT06035744"
+        ],
+        "confidence": "primary",
+        "importance": "medium"
+      },
+      {
+        "id": "5",
+        "date": "2023-12-27",
+        "year": 2023,
+        "title": "Trial Termination: Vudalimab or Pembrolizumab in Combination With Chemotherapy",
+        "type": "termination",
+        "summary": "The trial was terminated due to a business decision.",
+        "phase": "PHASE1",
+        "trialId": "NCT06173505",
+        "indication": "Advanced NSCLC",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT06173505"
+        ],
+        "confidence": "primary",
+        "importance": "medium"
+      },
+      {
+        "id": "6",
+        "date": "2021-07-12",
+        "year": 2021,
+        "title": "Trial Termination: Tumor Treating Fields with Pembrolizumab",
+        "type": "termination",
+        "summary": "The trial was terminated due to insufficient enrollment and was not based on safety concerns.",
+        "phase": "PHASE2",
+        "trialId": "NCT04892472",
+        "indication": "Advanced or Metastatic NSCLC",
+        "status": "TERMINATED",
+        "evidenceIds": [
+          "ev-NCT04892472"
+        ],
+        "confidence": "primary",
+        "importance": "medium"
+      }
+    ]
+  },
+  "setbackInvestigations": [],
+  "evidence": [
+    {
+      "id": "ev-fda-label",
+      "sourceType": "fda",
+      "title": "KEYTRUDA FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"KEYTRUDA\"",
+      "date": "20260710",
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06549855",
+      "sourceType": "clinicaltrials",
+      "title": "PD-1 Inhibitor Combined With Progesterone Treatment in FST for Patients With MMRd Endometrial Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06549855",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04139317",
+      "sourceType": "clinicaltrials",
+      "title": "Safety and Efficacy of Capmatinib (INC280) Plus Pembrolizumab vs Pembrolizumab Alone in NSCLC With PD-L1\u00e2\u2030\u00a5 50%",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04139317",
+      "date": null,
+      "excerpt": "Sponsor decision to terminate due to the lack of tolerability observed in patients treated with capmatinib and pembrolizumab in the combination arm as compared to patients treated with pembrolizumab alone in the pembrolizumab single agent arm",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06917079",
+      "sourceType": "clinicaltrials",
+      "title": "BBO-11818 in Adult Subjects With KRAS Mutant Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06917079",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04787042",
+      "sourceType": "clinicaltrials",
+      "title": "Phase 1a and Phase 2 Study for Safety, Preliminary Efficacy, PK and PD of ST-067",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04787042",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT05273827",
+      "sourceType": "clinicaltrials",
+      "title": "Effect of Neoadjuvant Anti-PD-1 Immunotherapy on Perioperative Analgesia and Postoperative Delirium",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT05273827",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT07385846",
+      "sourceType": "clinicaltrials",
+      "title": "Pilot Study of Navigated Focused Ultrasound and Pembrolizumab in the Treatment of Recurrent WHO Grade 4 IDH-Wildtype Glioblastoma With Mismatch Repair Deficiency",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT07385846",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT03858582",
+      "sourceType": "clinicaltrials",
+      "title": "neoadjuvant_thymic Epithelial Tumor",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT03858582",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04164979",
+      "sourceType": "clinicaltrials",
+      "title": "Ph II Study of Cabozantinib With Pembrolizumab in Metastatic Gastric and Gastroesophageal Adenocarcinoma",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04164979",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04946370",
+      "sourceType": "clinicaltrials",
+      "title": "Phase I/II Trial of Pembrolizumab and Androgen-receptor Inhibitor With or Without 225Ac-J591 for Progressive Metastatic Castration Resistant Prostate Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04946370",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06219174",
+      "sourceType": "clinicaltrials",
+      "title": "Targeting ODC as an Immunotherapeutic Target in STK11 (LKB1) Pathway-Deficient NSCLC (DFMO)",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06219174",
+      "date": null,
+      "excerpt": "Drugs unavailable",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04368078",
+      "sourceType": "clinicaltrials",
+      "title": "Lenvatinib Combined Toripalimab in Advanced Hepatocellular Carcinoma",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04368078",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06036836",
+      "sourceType": "clinicaltrials",
+      "title": "Study of Favezelimab Coformulated With Pembrolizumab (MK-4280A) in Participants With Selected Solid Tumors (MK-4280A-010)",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06036836",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT07282509",
+      "sourceType": "clinicaltrials",
+      "title": "Safety and Efficacy of Paclitaxel Liposome Arterial Infusion Combined With Systemic Therapy for Second-Line Treatment of Advanced Liver Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT07282509",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT07654530",
+      "sourceType": "clinicaltrials",
+      "title": "Sintilimab Combined With Ipilimumab (N01) Plus AG as First-line Therapy for uBTC.",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT07654530",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT07565285",
+      "sourceType": "clinicaltrials",
+      "title": "The Efficacy and Safety of PRTX007-003 Combined With Pembrolizumab in Resectable Stage III Melanoma",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT07565285",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT02376699",
+      "sourceType": "clinicaltrials",
+      "title": "Safety Study of SEA-CD40 in Cancer Patients",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT02376699",
+      "date": null,
+      "excerpt": "Study closed due to portfolio prioritization",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04549428",
+      "sourceType": "clinicaltrials",
+      "title": "Atezolizumab Plus 8 Gy Single-fraction Radiotherapy for Advanced Oligoprogressive NSCLC",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04549428",
+      "date": null,
+      "excerpt": "Terminated for futility, as determined by an interim data analysis.",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT05256381",
+      "sourceType": "clinicaltrials",
+      "title": "A Study of SOT101 in Combination With Pembrolizumab to Evaluate the Efficacy and Safety in Patients With Selected Advanced Solid Tumors",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT05256381",
+      "date": null,
+      "excerpt": "Due to lack of expected efficacy shown at the time of the interim analysis",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06035744",
+      "sourceType": "clinicaltrials",
+      "title": "CLN-617 Alone and in Combination With Pembrolizumab in Patients With Advanced Solid Tumors",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06035744",
+      "date": null,
+      "excerpt": "Company decision",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT06173505",
+      "sourceType": "clinicaltrials",
+      "title": "Study of Vudalimab or Pembrolizumab in Combination With Chemotherapy as First-line Treatment in Patients With Advanced NSCLC",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT06173505",
+      "date": null,
+      "excerpt": "Business Decision",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT03938337",
+      "sourceType": "clinicaltrials",
+      "title": "Abemaciclib and Pembrolizumab in Metastatic or Recurrent Head and Neck Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT03938337",
+      "date": null,
+      "excerpt": "Sponsor terminated study due to higher incidence of pulmonary toxicity than expected, including death",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-NCT04892472",
+      "sourceType": "clinicaltrials",
+      "title": "EF-36/Keynote B36: A Pilot, Randomized, Open-label Study of Tumor Treating Fields (TTFields, 150 kHz) Concomitant With Pembrolizumab for First Line Treatment of Advanced or Metastatic Non-small Cell Lung Cancer",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/study/NCT04892472",
+      "date": null,
+      "excerpt": "Phase 2 study terminated due to insufficient enrollment and was not based on safety concerns. Novocure is enrolling a new Phase 3 study of TTFields as a first line treatment for advanced/metastatic NSCLC (NCT06216301).",
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-TEVIMBRA",
+      "sourceType": "fda",
+      "title": "TEVIMBRA FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"TEVIMBRA\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-JEMPERLI",
+      "sourceType": "fda",
+      "title": "Jemperli FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"JEMPERLI\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-KEYTRUDA-QLEX",
+      "sourceType": "fda",
+      "title": "KEYTRUDA QLEX FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"KEYTRUDA QLEX\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-ZYNYZ",
+      "sourceType": "fda",
+      "title": "ZYNYZ FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"ZYNYZ\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-TECENTRIQ",
+      "sourceType": "fda",
+      "title": "TECENTRIQ FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"TECENTRIQ\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-OPDIVO-QVANTIG",
+      "sourceType": "fda",
+      "title": "OPDIVO QVANTIG FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"OPDIVO QVANTIG\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-LOQTORZI",
+      "sourceType": "fda",
+      "title": "LOQTORZI FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"LOQTORZI\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-TECENTRIQ-HYBREZA",
+      "sourceType": "fda",
+      "title": "Tecentriq Hybreza FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"TECENTRIQ HYBREZA\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-OPDUALAG",
+      "sourceType": "fda",
+      "title": "OPDUALAG FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"OPDUALAG\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-YERVOY",
+      "sourceType": "fda",
+      "title": "YERVOY FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"YERVOY\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-IMJUDO",
+      "sourceType": "fda",
+      "title": "IMJUDO FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"IMJUDO\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-MEKINIST",
+      "sourceType": "fda",
+      "title": "Mekinist FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"MEKINIST\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-DACARBAZINE",
+      "sourceType": "fda",
+      "title": "Dacarbazine FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"DACARBAZINE\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-BRAFTOVI",
+      "sourceType": "fda",
+      "title": "BRAFTOVI FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"BRAFTOVI\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-KIMMTRAK",
+      "sourceType": "fda",
+      "title": "KIMMTRAK FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"KIMMTRAK\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    },
+    {
+      "id": "ev-fda-TECELRA",
+      "sourceType": "fda",
+      "title": "TECELRA FDA Label",
+      "publisher": "U.S. FDA / openFDA",
+      "url": "https://api.fda.gov/drug/label.json?search=openfda.brand_name.exact:\"TECELRA\"",
+      "date": null,
+      "excerpt": null,
+      "retrievedAt": null,
+      "authority": "primary"
+    }
+  ],
+  "agentRun": {
+    "runId": "205ca2e8-9b01-4d3b-bde0-e627d5364457",
+    "status": "complete",
+    "steps": [
+      {
+        "id": "s1",
+        "label": "Resolving drug identity",
+        "status": "complete"
+      },
+      {
+        "id": "s2",
+        "label": "Retrieving FDA label",
+        "status": "complete"
+      },
+      {
+        "id": "s3",
+        "label": "Label Analyst: extracting label fields",
+        "status": "complete"
+      },
+      {
+        "id": "s4",
+        "label": "Searching clinical trial history (15 + 8 records)",
+        "status": "complete"
+      },
+      {
+        "id": "s5",
+        "label": "Trial Historian: building timeline",
+        "status": "complete"
+      },
+      {
+        "id": "s5a-NCT04139317",
+        "label": "Setback Investigator: NCT04139317 skipped (Bright Data zone not configured)",
+        "status": "failed",
+        "parentStepId": "s5"
+      },
+      {
+        "id": "s5a-NCT03938337",
+        "label": "Setback Investigator: NCT03938337 skipped (Bright Data zone not configured)",
+        "status": "failed",
+        "parentStepId": "s5"
+      },
+      {
+        "id": "s6",
+        "label": "Mapping mechanism neighbors (6 found)",
+        "status": "complete"
+      },
+      {
+        "id": "s6-tislelizumab-jsgr",
+        "label": "Network subagent: TEVIMBRA",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s6-dostarlimab",
+        "label": "Network subagent: Jemperli",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s6-retifanlimab-dlwr",
+        "label": "Network subagent: ZYNYZ",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s6-ipilimumab",
+        "label": "Network subagent: YERVOY",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s6-tremelimumab",
+        "label": "Network subagent: IMJUDO",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s6-trametinib",
+        "label": "Network subagent: Mekinist",
+        "status": "complete",
+        "parentStepId": "s6"
+      },
+      {
+        "id": "s7",
+        "label": "Cross-checking sources",
+        "status": "complete"
+      },
+      {
+        "id": "s8",
+        "label": "Synthesizing case findings (3 findings)",
+        "status": "complete"
+      }
+    ],
+    "sourcesChecked": 39
+  }
+}
