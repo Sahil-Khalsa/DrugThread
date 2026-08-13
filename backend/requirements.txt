@@ -1,0 +1,15 @@
+# Strands Agents SDK with OpenAI model provider (spec §12-14)
+strands-agents[openai]
+
+# API surface (spec §29)
+fastapi
+uvicorn[standard]
+
+# HTTP client for openFDA / ClinicalTrials.gov / Bright Data integrations
+httpx
+
+# Structured data models (Finding, Evidence, NetworkNode, HistoryEvent, DrugDossier — spec §18-19)
+pydantic
+
+# Local .env loading
+python-dotenv
